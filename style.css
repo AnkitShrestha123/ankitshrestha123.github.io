@@ -1,0 +1,144 @@
+/* Reset some default styles */
+body, h1, ul, li, a {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    list-style: none;
+}
+
+/* Body styling */
+body {
+    background-color: #1d242f; /* Dark background */
+    color: #f5f5f5; /* Light text color */
+    font-family: 'Arial', sans-serif;
+}
+
+/* Header styling */
+header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    text-align: center;
+}
+
+.logo-container {
+    padding: 10px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.logo {
+    width: 80%; /* Adjust size of logo for responsiveness */
+    max-width: 550px; /* Ensure logo doesn't exceed a certain size */
+    height: auto;
+}
+
+h1 {
+    font-family: 'Cursive', sans-serif; /* Match the cursive font */
+    font-size: 2em;
+    margin-top: 0px;
+}
+
+/* Navigation styling */
+nav ul {
+    font-family: 'Futura', sans-serif;
+    display: flex;
+    justify-content: center;
+    gap: 3rem; /* Adjusted gap for smaller screens */
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+}
+
+nav ul li a {
+    font-size: 1.5em;
+    color: #fdf8e4;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #ffcc00; /* Hover effect color */
+}
+
+/* Footer styling */
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    padding: 10px 0;
+}
+
+.social-media-icons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.social-media-icons a img {
+    width: 60px;
+    height: auto;
+    transition: filter 0.3s ease, transform 0.3s ease;
+}
+
+.social-media-icons a img:hover {
+    filter: invert(0.7);
+    transform: scale(1.1);
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 1024px) {
+    header {
+        height: auto;
+        padding: 20px;
+    }
+
+    .logo {
+        width: 70%;
+        max-width: 400px;
+    }
+
+    nav ul {
+        gap: 2rem;
+    }
+
+    nav ul li a {
+        font-size: 1.2em;
+    }
+}
+
+@media (max-width: 768px) {
+    .logo {
+        width: 60%;
+        max-width: 300px;
+    }
+
+    nav ul {
+        gap: 1rem;
+        flex-direction: column;
+    }
+
+    nav ul li a {
+        font-size: 1.2em;
+        margin: 10px 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo {
+        width: 80%;
+        max-width: 250px;
+    }
+
+    nav ul {
+        gap: 1rem;
+    }
+
+    nav ul li a {
+        font-size: 1em;
+    }
+
+    .social-media-icons a img {
+        width: 30px;
+    }
+}

@@ -1,0 +1,204 @@
+/* General body styling */
+body {
+    background-color: #1d242f;
+    color: #f5f5f5;
+    font-family: 'Futura', sans-serif;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+/* Home Button Styling */
+.home-button {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+}
+
+.home-button a {
+    color: #fdf8e4;
+    text-decoration: none;
+    font-size: 1.2em;
+    font-weight: bold;
+    padding: 10px 20px;
+    border: 2px solid #fdf8e4;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.home-button a:hover {
+    background-color: #fdf8e4;
+    color: #1d242f;
+}
+
+/* Music section styling */
+.music-section {
+    padding: 20px 0;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.music-header {
+    display: flex;
+    align-items: center; /* Vertically centers the text and icons */
+    justify-content: center;
+    gap: 10px;
+}
+
+.music-header h2 {
+    font-size: 2em;
+    color: #e0d8c3;
+    margin: 0px;
+    font-weight: lighter;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    font-family: 'Futura', sans-serif;
+}
+
+.watch-now {
+    margin-bottom: 20px;
+    text-decoration: underline;
+    color: #e0d8c3;
+    font-size: x-large;
+    font-family: 'Futura', sans-serif;
+    letter-spacing: 3px;
+}
+
+.watch-now a:hover {
+    color: #ffcc00; /* Hover effect color */
+    transform: scale(1.3);
+}
+.album-icons img {
+    width: 250px; /* Adjust the size of the icons for responsiveness */
+    height: auto;
+    margin-top: 30px;
+}
+
+/* Video gallery styling */
+.video-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.video-thumbnail {
+    width: 30%;
+    max-width: 300px;
+    text-align: center;
+}
+
+.video-thumbnail img {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+}
+
+.video-thumbnail img:hover {
+    transform: scale(1.05);
+}
+
+.video-thumbnail p {
+    margin: 0;
+    color: #e0d8c3;
+    font-size: 1.1em;
+    font-weight: lighter;
+}
+
+/* Footer styling */
+footer {
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    padding: 10px 0;
+    background-color: #1d242f;
+}
+
+.social-media-icons {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+.social-media-icons a img {
+    width: 60px;
+    height: auto;
+    transition: filter 0.3s ease, transform 0.3s ease;
+}
+
+.social-media-icons a img:hover {
+    filter: invert(0.7);
+    transform: scale(1.1);
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 1024px) {
+    .music-header h2 {
+        font-size: 1.8em;
+    }
+
+    .album-icons img {
+        width: 200px;
+    }
+
+    .video-thumbnail {
+        width: 45%;
+        max-width: 250px;
+    }
+
+    .video-gallery {
+        gap: 15px;
+    }
+}
+
+@media (max-width: 768px) {
+    .music-header {
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .music-header h2 {
+        font-size: 1.5em;
+        margin-top: 10px;
+    }
+
+    .album-icons img {
+        width: 150px;
+        margin-top: 10px;
+    }
+
+    .video-thumbnail {
+        width: 90%;
+        max-width: 200px;
+    }
+
+    .video-gallery {
+        gap: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .music-header h2 {
+        font-size: 1.2em;
+    }
+
+    .album-icons img {
+        width: 120px;
+    }
+
+    .video-thumbnail {
+        width: 100%;
+        max-width: 150px;
+    }
+
+    .video-thumbnail p {
+        font-size: 0.9em;
+    }
+}
