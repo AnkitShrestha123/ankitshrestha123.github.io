@@ -96,13 +96,12 @@ footer {
     width: 100%;
     text-align: center;
     padding: 10px 0;
-    background-color: #1d242f;
 }
 
 .social-media-icons {
     display: flex;
     justify-content: center;
-    gap: 30px;
+    gap: 20px;
 }
 
 .social-media-icons a img {
@@ -118,51 +117,57 @@ footer {
 
 /* Media Queries for Responsiveness */
 @media (max-width: 1024px) {
-    .header h1 {
-        font-size: 1.8em;
+    header {
+        height: auto;
+        padding: 20px;
     }
 
-    .ankit-image img {
-        width: 400px;
+    .logo {
+        width: 70%;
+        max-width: 400px;
     }
 
-    .content {
-        font-size: 16px;
+    nav ul {
+        gap: 2rem;
+    }
+
+    nav ul li a {
+        font-size: 1.2em;
     }
 }
 
 @media (max-width: 768px) {
-    .header h1 {
-        font-size: 1.5em;
+    .logo {
+        width: 60%;
+        max-width: 300px;
     }
 
-    .ankit-image img {
-        width: 300px;
+    nav ul {
+        gap: 1rem;
+        flex-direction: column;
     }
 
-    .content {
-        font-size: 14px;
-    }
-
-    .social-media-icons a img {
-        width: 60px;
+    nav ul li a {
+        font-size: 1.2em;
+        margin: 10px 0;
     }
 }
 
 @media (max-width: 480px) {
-    .header h1 {
-        font-size: 1.2em;
+    .logo {
+        width: 80%;
+        max-width: 250px;
     }
 
-    .ankit-image img {
-        width: 200px;
+    nav ul {
+        gap: 1rem;
     }
 
-    .content {
-        font-size: 12px;
+    nav ul li a {
+        font-size: 1em;
     }
 
     .social-media-icons a img {
-        width: 40px;
+        width: 30px;
     }
 }

@@ -94,10 +94,19 @@ body {
 }
 
 /* Specific styling for media-item-6 and media-item-7 with image and text */
+.media-item-1,
 .media-item-6,
 .media-item-7 {
     display: flex;
     align-items: center; /* Center the icon and text vertically */
+}
+
+
+.media-item-1 img.media-icon-1 {
+    width: 160px; /* Adjust the size of the icon */
+    height: 120px;
+    margin-right: 20px;
+    border-radius: 5px; /* Optional: to match the overall theme */
 }
 
 .media-item-6 img.media-icon-1 {
@@ -114,6 +123,7 @@ body {
     border-radius: 5px; /* Optional: to match the overall theme */
 }
 
+.media-item-1 .media-text,
 .media-item-6 .media-text,
 .media-item-7 .media-text {
     flex-grow: 1;
@@ -191,13 +201,12 @@ footer {
     width: 100%;
     text-align: center;
     padding: 10px 0;
-    background-color: #1d242f;
 }
 
 .social-media-icons {
     display: flex;
     justify-content: center;
-    gap: 30px;
+    gap: 20px;
 }
 
 .social-media-icons a img {
@@ -212,118 +221,58 @@ footer {
 }
 
 /* Media Queries for Responsiveness */
+@media (max-width: 1024px) {
+    header {
+        height: auto;
+        padding: 20px;
+    }
+
+    .logo {
+        width: 70%;
+        max-width: 400px;
+    }
+
+    nav ul {
+        gap: 2rem;
+    }
+
+    nav ul li a {
+        font-size: 1.2em;
+    }
+}
+
 @media (max-width: 768px) {
-    .media-content {
-        padding: 10px;
+    .logo {
+        width: 60%;
+        max-width: 300px;
     }
 
-    .media-item-1,
-    .media-item-2,
-    .media-item-3,
-    .media-item-4,
-    .media-item-5,
-    .media-item-6,
-    .media-item-7,
-    .media-item-8,
-    .media-item-9,
-    .media-item-11,
-    .media-item-10 {
-        padding: 15px;
+    nav ul {
+        gap: 1rem;
+        flex-direction: column;
     }
 
-    .media-item-6 img.media-icon,
-    .media-item-7 img.media-icon {
-        width: 80px; /* Smaller icon on smaller screens */
-        margin-right: 15px;
-    }
-
-    .media-item-1 h3,
-    .media-item-2 h3,
-    .media-item-3 h3,
-    .media-item-4 h3,
-    .media-item-5 h3,
-    .media-item-6 h3,
-    .media-item-7 h3,
-    .media-item-8 h3,
-    .media-item-9 h3,
-    .media-item-11 h3,
-    .media-item-10 h3 {
-        font-size: 1.3em;
-    }
-
-    .media-item-1 p,
-    .media-item-2 p,
-    .media-item-3 p,
-    .media-item-4 p,
-    .media-item-5 p,
-    .media-item-6 p,
-    .media-item-7 p,
-    .media-item-8 p,
-    .media-item-9 p,
-    .media-item-11 p,
-    .media-item-10 p {
-        font-size: 0.9em;
-    }
-
-    .social-media-icons a img {
-        width: 50px;
+    nav ul li a {
+        font-size: 1.2em;
+        margin: 10px 0;
     }
 }
 
 @media (max-width: 480px) {
-    .media-header h2 {
-        font-size: 1.5em;
+    .logo {
+        width: 80%;
+        max-width: 250px;
     }
 
-    .media-item-1,
-    .media-item-2,
-    .media-item-3,
-    .media-item-4,
-    .media-item-5,
-    .media-item-6,
-    .media-item-7,
-    .media-item-8,
-    .media-item-9,
-    .media-item-11,
-    .media-item-10 {
-        padding: 10px;
+    nav ul {
+        gap: 1rem;
     }
 
-    .media-item-6 img.media-icon,
-    .media-item-7 img.media-icon {
-        width: 60px; /* Smaller icon on small screens */
-        margin-right: 10px;
-    }
-
-    .media-item-1 h3,
-    .media-item-2 h3,
-    .media-item-3 h3,
-    .media-item-4 h3,
-    .media-item-5 h3,
-    .media-item-6 h3,
-    .media-item-7 h3,
-    .media-item-8 h3,
-    .media-item-9 h3,
-    .media-item-11 h3,
-    .media-item-10 h3 {
-        font-size: 1.1em;
-    }
-
-    .media-item-1 p,
-    .media-item-2 p,
-    .media-item-3 p,
-    .media-item-4 p,
-    .media-item-5 p,
-    .media-item-6 p,
-    .media-item-7 p,
-    .media-item-8 p,
-    .media-item-9 p,
-    .media-item-11 p,
-    .media-item-10 p {
-        font-size: 0.8em;
+    nav ul li a {
+        font-size: 1em;
     }
 
     .social-media-icons a img {
-        width: 40px;
+        width: 30px;
     }
 }

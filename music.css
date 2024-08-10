@@ -166,13 +166,13 @@ body {
     color: #e0d8c3;
 }
 
+/* Footer styling */
 footer {
     position: relative;
     bottom: 0;
     width: 100%;
     text-align: center;
     padding: 10px 0;
-    background-color: #1d242f;
 }
 
 .social-media-icons {
@@ -194,25 +194,57 @@ footer {
 
 /* Media Queries for Responsiveness */
 @media (max-width: 1024px) {
-    .music-header h2 {
-        font-size: 1.8em;
-    }
-
-    .album-icons img {
-        width: 100px; /* Adjust icon size for tablets */
-    }
-
-    .music-content {
-        flex-direction: column;
-    }
-
-    .left-column, .right-column {
+    header {
+        height: auto;
         padding: 20px;
+    }
+
+    .logo {
+        width: 70%;
+        max-width: 400px;
+    }
+
+    nav ul {
+        gap: 2rem;
+    }
+
+    nav ul li a {
+        font-size: 1.2em;
     }
 }
 
 @media (max-width: 768px) {
-    .music-header h2 {
-        font-size: 1
-       }   
+    .logo {
+        width: 60%;
+        max-width: 300px;
     }
+
+    nav ul {
+        gap: 1rem;
+        flex-direction: column;
+    }
+
+    nav ul li a {
+        font-size: 1.2em;
+        margin: 10px 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo {
+        width: 80%;
+        max-width: 250px;
+    }
+
+    nav ul {
+        gap: 1rem;
+    }
+
+    nav ul li a {
+        font-size: 1em;
+    }
+
+    .social-media-icons a img {
+        width: 30px;
+    }
+}

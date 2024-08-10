@@ -1,10 +1,13 @@
 /* General body styling */
 body {
-    background-color: #1d242f; /* Dark background color */
-    color: #c0a74b; /* Light text color */
-    font-family: 'Futura', sans-serif; /* Use Futura font */
+    background-color: #1d242f;
+    color: #c0a74b;
+    font-family: 'Futura', sans-serif;
     margin: 0;
     padding: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 /* Home Button Styling */
@@ -35,7 +38,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 100vh;
+    flex: 1;
     padding: 20px;
 }
 
@@ -57,7 +60,7 @@ body {
 }
 
 .profile-drawing {
-    width: 200%; /* Adjust the size of the drawing */
+    width: 100%;
     max-width: 500px;
     height: auto;
 }
@@ -65,14 +68,14 @@ body {
 .about-text {
     flex: 2;
     padding-left: 20px;
-    color: #f8f3e2; /* Light text color */
+    color: #f8f3e2;
 }
 
 .about-text h2 {
     font-size: 2em;
     letter-spacing: 5px;
     margin-bottom: 20px;
-    color: #fdf8e4; /* Light text color */
+    color: #fdf8e4;
 }
 
 .about-text p {
@@ -91,12 +94,15 @@ footer {
     width: 100%;
     text-align: center;
     padding: 10px 0;
+    background-color: #1d242f;
+    color: #c0a74b;
+    flex-shrink: 0;
 }
 
 .social-media-icons {
     display: flex;
     justify-content: center;
-    gap: 30px;
+    gap: 20px;
 }
 
 .social-media-icons a img {
@@ -111,34 +117,30 @@ footer {
 }
 
 /* Media Queries for Responsiveness */
-@media (max-width: 1024px) {
+@media (max-width: 768px) {
     .about-container {
         flex-direction: column;
         align-items: center;
         text-align: center;
     }
 
-    .about-image, .about-text {
-        padding: 20px;
-        max-width: 90%;
+    .about-image {
+        margin-right: 0;
+        margin-bottom: 20px;
     }
 
     .about-text {
         padding-left: 0;
     }
+
+    .profile-drawing {
+        width: 80%;
+        max-width: 300px;
+    }
 }
 
-@media (max-width: 768px) {
-    .profile-drawing {
-        max-width: 200px; /* Reduce the image size on smaller screens */
-    }
-
-    .about-text h2 {
-        font-size: 1.5em;
-    }
-
-    .about-text p {
-        font-size: 1em;
-        letter-spacing: 1.2px;
+@media (max-width: 480px) {
+    .social-media-icons a img {
+        width: 30px;
     }
 }

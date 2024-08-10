@@ -118,13 +118,12 @@ footer {
     width: 100%;
     text-align: center;
     padding: 10px 0;
-    background-color: #1d242f;
 }
 
 .social-media-icons {
     display: flex;
     justify-content: center;
-    gap: 30px;
+    gap: 20px;
 }
 
 .social-media-icons a img {
@@ -140,65 +139,57 @@ footer {
 
 /* Media Queries for Responsiveness */
 @media (max-width: 1024px) {
-    .music-header h2 {
-        font-size: 1.8em;
+    header {
+        height: auto;
+        padding: 20px;
     }
 
-    .album-icons img {
-        width: 200px;
+    .logo {
+        width: 70%;
+        max-width: 400px;
     }
 
-    .video-thumbnail {
-        width: 45%;
-        max-width: 250px;
+    nav ul {
+        gap: 2rem;
     }
 
-    .video-gallery {
-        gap: 15px;
+    nav ul li a {
+        font-size: 1.2em;
     }
 }
 
 @media (max-width: 768px) {
-    .music-header {
+    .logo {
+        width: 60%;
+        max-width: 300px;
+    }
+
+    nav ul {
+        gap: 1rem;
         flex-direction: column;
-        gap: 5px;
     }
 
-    .music-header h2 {
-        font-size: 1.5em;
-        margin-top: 10px;
-    }
-
-    .album-icons img {
-        width: 150px;
-        margin-top: 10px;
-    }
-
-    .video-thumbnail {
-        width: 90%;
-        max-width: 200px;
-    }
-
-    .video-gallery {
-        gap: 10px;
+    nav ul li a {
+        font-size: 1.2em;
+        margin: 10px 0;
     }
 }
 
 @media (max-width: 480px) {
-    .music-header h2 {
-        font-size: 1.2em;
+    .logo {
+        width: 80%;
+        max-width: 250px;
     }
 
-    .album-icons img {
-        width: 120px;
+    nav ul {
+        gap: 1rem;
     }
 
-    .video-thumbnail {
-        width: 100%;
-        max-width: 150px;
+    nav ul li a {
+        font-size: 1em;
     }
 
-    .video-thumbnail p {
-        font-size: 0.9em;
+    .social-media-icons a img {
+        width: 30px;
     }
 }
