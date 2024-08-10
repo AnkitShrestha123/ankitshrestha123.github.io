@@ -111,6 +111,15 @@ body {
     font-weight: lighter;
 }
 
+/* Remove underline and change color on hover */
+.video-thumbnail a {
+    text-decoration: none; /* Remove the blue underline */
+}
+
+.video-thumbnail a:hover p {
+    color: #ffcc00; /* Yellow color */
+}
+
 /* Footer styling */
 footer {
     position: relative;
