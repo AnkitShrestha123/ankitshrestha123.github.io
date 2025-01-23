@@ -4,7 +4,6 @@ body {
     font-family: 'Futura', sans-serif;
     margin: 0;
     padding: 0;
-    text-align: center;
 }
 
 /* Home Button Styling */
@@ -31,7 +30,7 @@ body {
 }
 
 .music-section {
-    padding: 20px 0;
+    padding: 20px;
 }
 
 .music-header {
@@ -60,7 +59,7 @@ body {
 
 .listen-now {
     margin-bottom: 20px;
-    text-decoration: underline;
+    text-align: left; /* Left-align the listen button */
     color: #e0d8c3;
     font-size: x-large;
     font-family: 'Futura', sans-serif;
@@ -72,16 +71,16 @@ body {
     transform: scale(1.3);
 }
 
+/* Content Layout */
 .music-content {
-    display: flex;
-    flex-direction: column; /* Ensure all content stacks in a column */
     max-width: 1200px;
     margin: 0 auto;
     padding: 20px;
 }
 
 .upcoming-release {
-    text-align: center;
+    text-align: left; /* Align all text to the left */
+    margin-bottom: 20px; /* Add spacing between sections */
 }
 
 .upcoming-release .label {
@@ -99,7 +98,6 @@ body {
 .upcoming-release h3 {
     font-size: 1.4em;
     font-weight: lighter;
-    text-align: center;
     color: #e0d8c3;
     margin: 0;
 }
@@ -107,16 +105,15 @@ body {
 .upcoming-release h4 {
     font-size: 1.2em;
     font-weight: lighter;
-    text-align: center;
     color: #e0d8c3;
     margin: 10px 0 10px;
 }
 
 .album-layout {
     display: flex;
-    align-items: center; /* Align album artwork and track list vertically */
-    justify-content: center; /* Center the layout horizontally */
-    gap: 20px; /* Add spacing between image and track list */
+    align-items: flex-start; /* Align items to the top */
+    justify-content: flex-start; /* Align layout to the left */
+    gap: 20px; /* Space between image and track list */
     margin: 20px 0;
 }
 
@@ -127,7 +124,7 @@ body {
 }
 
 .album-tracks {
-    text-align: left; /* Align track list text to the left */
+    text-align: left; /* Align text to the left */
     font-size: 1em;
     color: #e0d8c3;
 }
@@ -140,7 +137,7 @@ body {
 
 .album-tracks li {
     display: inline; /* Display tracks inline */
-    margin-right: 5px; /* Space between tracks */
+    margin-right: 10px; /* Space between tracks */
     font-weight: lighter;
 }
 
@@ -149,19 +146,21 @@ body {
     color: #e0d8c3; /* Match separator color */
 }
 
+.singles {
+    text-align: left; /* Align singles section to the left */
+}
+
 .singles h3 {
     font-size: 1.5em;
     margin-bottom: 10px;
     text-transform: uppercase;
     font-family: 'Futura', sans-serif;
-    text-align: left;
     color: #e0d8c3;
     font-weight: lighter;
 }
 
 .singles ul {
     list-style: none;
-    text-align: left;
     padding: 0;
     color: #e0d8c3;
     font-size: 1em;
@@ -174,7 +173,7 @@ body {
 }
 
 .albums p {
-    text-align: left;
+    text-align: left; /* Align albums section to the left */
     font-size: 1.2em;
     margin-top: 40px;
     color: #e0d8c3;
@@ -209,12 +208,13 @@ footer {
 /* Media Queries for Responsiveness */
 @media (max-width: 768px) {
     .album-layout {
-        flex-direction: column; /* Stack album art and track list */
-        text-align: center; /* Center align on smaller screens */
+        flex-direction: column; /* Stack album art and track list vertically */
+        align-items: flex-start; /* Align to the left */
     }
 
     .banda-aakha-cover img {
         margin-bottom: 10px;
     }
 }
+
 
