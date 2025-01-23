@@ -74,18 +74,10 @@ body {
 
 .music-content {
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+    flex-direction: column; /* Ensure all content stacks in a column */
     max-width: 1200px;
     margin: 0 auto;
     padding: 20px;
-    flex-wrap: wrap; /* Allow content to wrap on smaller screens */
-}
-
-.left-column, .right-column {
-    flex: 1;
-    padding: 30px;
-    min-width: 300px; /* Ensure columns don't get too small on narrow screens */
 }
 
 .upcoming-release {
@@ -120,19 +112,41 @@ body {
     margin: 10px 0 10px;
 }
 
-.upcoming-release p {
-    font-size: 1em;
-    margin: 3px 0;
-    color: #e0d8c3;
-    font-weight: lighter;
+.album-layout {
+    display: flex;
+    align-items: center; /* Align album artwork and track list vertically */
+    justify-content: center; /* Center the layout horizontally */
+    gap: 20px; /* Add spacing between image and track list */
+    margin: 20px 0;
 }
 
 .banda-aakha-cover img {
-    width: 200px;
-    padding-top: 10px;
-    height: auto;
-    display: block;
-    margin: 0 auto;
+    width: 200px; /* Set fixed width for album art */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 10px; /* Optional rounded corners */
+}
+
+.album-tracks {
+    text-align: left; /* Align track list text to the left */
+    font-size: 1em;
+    color: #e0d8c3;
+}
+
+.album-tracks ul {
+    list-style: none; /* Remove bullets */
+    padding: 0;
+    margin: 0;
+}
+
+.album-tracks li {
+    display: inline; /* Display tracks inline */
+    margin-right: 5px; /* Space between tracks */
+    font-weight: lighter;
+}
+
+.album-tracks li:not(:last-child)::after {
+    content: " |"; /* Add a separator between tracks */
+    color: #e0d8c3; /* Match separator color */
 }
 
 .singles h3 {
@@ -193,58 +207,14 @@ footer {
 }
 
 /* Media Queries for Responsiveness */
-@media (max-width: 1024px) {
-    header {
-        height: auto;
-        padding: 20px;
-    }
-
-    .logo {
-        width: 70%;
-        max-width: 400px;
-    }
-
-    nav ul {
-        gap: 2rem;
-    }
-
-    nav ul li a {
-        font-size: 1.2em;
-    }
-}
-
 @media (max-width: 768px) {
-    .logo {
-        width: 60%;
-        max-width: 300px;
+    .album-layout {
+        flex-direction: column; /* Stack album art and track list */
+        text-align: center; /* Center align on smaller screens */
     }
 
-    nav ul {
-        gap: 1rem;
-        flex-direction: column;
-    }
-
-    nav ul li a {
-        font-size: 1.2em;
-        margin: 10px 0;
+    .banda-aakha-cover img {
+        margin-bottom: 10px;
     }
 }
 
-@media (max-width: 480px) {
-    .logo {
-        width: 80%;
-        max-width: 250px;
-    }
-
-    nav ul {
-        gap: 1rem;
-    }
-
-    nav ul li a {
-        font-size: 1em;
-    }
-
-    .social-media-icons a img {
-        width: 30px;
-    }
-}
