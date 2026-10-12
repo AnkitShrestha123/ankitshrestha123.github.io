@@ -2,413 +2,526 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About | Ankit Shrestha</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <style>
-        :root {
-            --bg: #1d252f;
-            --cream: #e7dfcc;
-            --muted: #aaa99f;
-            --line: rgba(231, 223, 204, 0.18);
-        }
+<title>About | Ankit Shrestha</title>
 
-        * {
-            box-sizing: border-box;
-        }
+<style>
+:root {
+    --bg: #1d252f;
+    --cream: #e7dfcc;
+    --muted: #aaa99f;
+    --line: rgba(231, 223, 204, 0.22);
+}
 
-        html {
-            scroll-behavior: smooth;
-        }
+* {
+    box-sizing: border-box;
+}
 
-        body {
-            margin: 0;
-            min-height: 100vh;
-            background: var(--bg);
-            color: var(--cream);
-            font-family: "Trebuchet MS", Arial, sans-serif;
-            line-height: 1.7;
-            display: flex;
-            flex-direction: column;
-        }
+html {
+    scroll-behavior: smooth;
+}
 
-        a {
-            color: inherit;
-            text-decoration: none;
-        }
+body {
+    margin: 0;
+    min-height: 100vh;
+    background: var(--bg);
+    color: var(--cream);
+    font-family: "Trebuchet MS", Arial, sans-serif;
+    line-height: 1.5;
+    display: flex;
+    flex-direction: column;
+}
 
-        a:hover {
-            opacity: 0.7;
-        }
+a {
+    color: inherit;
+    text-decoration: none;
+}
 
-        /* Home navigation */
+/* NAVIGATION */
 
-        .home-button {
-            position: absolute;
-            top: 28px;
-            left: 5%;
-            z-index: 2;
-        }
+.site-header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(29, 37, 47, 0.97);
+    border-bottom: 1px solid var(--line);
+}
 
-        .home-button a {
-            display: inline-block;
-            border: 1px solid var(--cream);
-            border-radius: 3px;
-            padding: 8px 22px;
-            font-size: 14px;
-            letter-spacing: 1px;
-            line-height: 1.6;
-        }
+.nav-inner {
+    max-width: 1240px;
+    margin: auto;
+    min-height: 74px;
+    padding: 0 28px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+}
 
-        /* About section */
+.site-name {
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    white-space: nowrap;
+}
 
-        .about-section {
-            width: 100%;
-            max-width: 1120px;
-            margin: auto;
-            padding: 130px 35px 100px;
-            flex: 1;
-            display: flex;
-            align-items: center;
-        }
+.site-name:hover {
+    opacity: 0.75;
+}
 
-        .about-container {
-            display: grid;
-            grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.3fr);
-            gap: 85px;
-            align-items: center;
-            width: 100%;
-        }
+.site-nav {
+    display: flex;
+    align-items: center;
+    gap: 31px;
+}
 
-        /* Illustration */
+.site-nav a {
+    position: relative;
+    display: inline-block;
+    padding: 27px 0 24px;
+    color: var(--muted);
+    font-size: 13px;
+    letter-spacing: 0.3px;
+    transition: color 0.2s ease;
+}
 
-        .about-image {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-        }
+.site-nav a:hover {
+    color: var(--cream);
+}
 
-        .profile-drawing {
-            width: 100%;
-            max-width: 390px;
-            height: auto;
-            display: block;
-            object-fit: contain;
-            transition: transform 0.5s ease;
-        }
+.site-nav a.active {
+    color: var(--cream);
+}
 
-        .profile-drawing:hover {
-            transform: translateY(-6px);
-        }
+.site-nav a.active::after {
+    content: "";
+    position: absolute;
+    bottom: 17px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: var(--cream);
+}
 
-        /* Text content */
+/* ABOUT LAYOUT */
 
-        .about-text {
-            max-width: 650px;
-        }
+.about-section {
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
+    padding: 48px 28px 55px;
+    flex: 1;
+    display: flex;
+    align-items: center;
+}
 
-        .eyebrow {
-            color: var(--muted);
-            font-size: 11px;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            margin: 0 0 14px;
-        }
+.about-container {
+    display: grid;
+    grid-template-columns:
+        minmax(0, 0.9fr)
+        minmax(0, 1.1fr);
+    gap: 55px;
+    align-items: center;
+    width: 100%;
+}
 
-        .about-text h1 {
-            font-size: 43px;
-            font-weight: 500;
-            letter-spacing: 7px;
-            line-height: 1.2;
-            margin: 0;
-        }
+/* ORIGINAL ILLUSTRATION */
 
-        .heading-line {
-            width: 65px;
-            height: 1px;
-            background: var(--cream);
-            margin: 27px 0 33px;
-            opacity: 0.7;
-        }
+.about-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
-        .about-text p.bio {
-            font-size: 16px;
-            line-height: 1.9;
-            letter-spacing: 0.15px;
-            margin: 0 0 23px;
-            color: var(--cream);
-        }
+.profile-drawing {
+    display: block;
+    width: 100%;
+    max-width: 450px;
+    height: auto;
+    object-fit: contain;
+}
 
-        .about-text p.bio:last-of-type {
-            margin-bottom: 0;
-        }
+/* BIOGRAPHY */
 
-        /* Music link */
+.about-text {
+    max-width: 640px;
+}
 
-        .about-actions {
-            margin-top: 36px;
-        }
+.eyebrow {
+    margin: 0 0 13px;
+    color: var(--muted);
+    font-size: 11px;
+    letter-spacing: 1.6px;
+}
 
-        .music-link {
-            display: inline-block;
-            border: 1px solid var(--cream);
-            padding: 12px 27px;
-            font-size: 12px;
-            font-weight: bold;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            transition: 0.2s ease;
-        }
+.about-text h1 {
+    margin: 0 0 22px;
+    font-size: clamp(29px, 3.4vw, 42px);
+    font-weight: 500;
+    letter-spacing: 7px;
+    line-height: 1.2;
+    text-transform: uppercase;
+}
 
-        .music-link:hover {
-            background: var(--cream);
-            color: var(--bg);
-            opacity: 1;
-            transform: translateY(-2px);
-        }
+.heading-line {
+    height: 1px;
+    width: 100%;
+    background: var(--line);
+    margin-bottom: 24px;
+}
 
-        /* Footer */
+.about-text p.bio {
+    margin: 0 0 19px;
+    color: var(--cream);
+    font-size: 15px;
+    line-height: 1.8;
+    letter-spacing: 0.1px;
+}
 
-        footer {
-            border-top: 1px solid var(--line);
-            padding: 35px 20px 45px;
-            text-align: center;
-        }
+.about-text p.bio:last-of-type {
+    margin-bottom: 0;
+}
 
-        .social-media-icons {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 28px;
-        }
+/* MUSIC BUTTON */
 
-        .social-media-icons img {
-            width: 24px;
-            height: 24px;
-            object-fit: contain;
-            transition: opacity 0.2s ease;
-        }
+.about-actions {
+    margin-top: 27px;
+}
 
-        .social-media-icons a:hover img {
-            opacity: 0.65;
-        }
+.music-link {
+    display: inline-block;
+    background: var(--cream);
+    color: var(--bg);
+    padding: 11px 26px;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 1.3px;
+    transition: background 0.2s ease;
+}
 
-        .footer-name {
-            margin-top: 25px;
-            font-size: 11px;
-            letter-spacing: 3px;
-            color: var(--muted);
-        }
+.music-link:hover {
+    background: #fff8e8;
+}
 
-        /* Tablet */
+/* FOOTER */
 
-        @media (max-width: 900px) {
-            .about-container {
-                gap: 45px;
-                grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
-            }
+footer {
+    border-top: 1px solid var(--line);
+    padding: 28px 20px 30px;
+    text-align: center;
+}
 
-            .about-section {
-                padding: 120px 30px 75px;
-            }
+.social-media-icons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 28px;
+}
 
-            .about-text h1 {
-                font-size: 36px;
-            }
+.social-media-icons a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
-            .about-text p.bio {
-                font-size: 15px;
-            }
-        }
+.social-media-icons img {
+    display: block;
+    width: 27px;
+    height: 27px;
+    object-fit: contain;
+    transition: opacity 0.2s ease;
+}
 
-        /* Mobile */
+.social-media-icons a:hover img {
+    opacity: 0.65;
+}
 
-        @media (max-width: 700px) {
-            .home-button {
-                top: 20px;
-                left: 22px;
-            }
+.footer-name {
+    margin: 17px 0 0;
+    font-size: 10px;
+    letter-spacing: 2px;
+    color: var(--muted);
+}
 
-            .about-section {
-                padding: 110px 24px 65px;
-                align-items: flex-start;
-            }
+/* TABLET */
 
-            .about-container {
-                grid-template-columns: 1fr;
-                gap: 35px;
-            }
+@media (max-width: 900px) {
+    .nav-inner {
+        gap: 18px;
+    }
 
-            .about-image {
-                order: 1;
-            }
+    .site-nav {
+        gap: 17px;
+    }
 
-            .profile-drawing {
-                max-width: 260px;
-            }
+    .site-nav a {
+        font-size: 12px;
+    }
 
-            .about-text {
-                order: 2;
-            }
+    .about-container {
+        gap: 30px;
+        grid-template-columns:
+            minmax(0, 0.8fr)
+            minmax(0, 1.2fr);
+    }
 
-            .eyebrow {
-                font-size: 10px;
-                letter-spacing: 2px;
-            }
+    .about-text p.bio {
+        font-size: 14px;
+        line-height: 1.75;
+    }
+}
 
-            .about-text h1 {
-                font-size: 32px;
-                letter-spacing: 5px;
-            }
+/* MOBILE */
 
-            .heading-line {
-                margin: 20px 0 25px;
-            }
+@media (max-width: 650px) {
 
-            .about-text p.bio {
-                font-size: 15px;
-                line-height: 1.85;
-                margin-bottom: 20px;
-            }
+    .nav-inner {
+        min-height: auto;
+        padding: 15px 18px 0;
+        flex-direction: column;
+        gap: 10px;
+    }
 
-            .about-actions {
-                margin-top: 30px;
-            }
+    .site-name {
+        font-size: 15px;
+    }
 
-            .social-media-icons {
-                gap: 22px;
-            }
-        }
+    .site-nav {
+        width: 100%;
+        justify-content: space-between;
+        gap: 12px;
+        overflow-x: auto;
+        scrollbar-width: none;
+    }
 
-        /* Reduced motion */
+    .site-nav::-webkit-scrollbar {
+        display: none;
+    }
 
-        @media (prefers-reduced-motion: reduce) {
-            .profile-drawing,
-            .music-link {
-                transition: none;
-            }
-        }
-    </style>
+    .site-nav a {
+        flex-shrink: 0;
+        padding: 8px 0 15px;
+        font-size: 12px;
+    }
+
+    .site-nav a.active::after {
+        bottom: 7px;
+    }
+
+    .about-section {
+        padding: 32px 20px 42px;
+        align-items: flex-start;
+    }
+
+    .about-container {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .about-image {
+        order: 1;
+    }
+
+    .profile-drawing {
+        max-width: 300px;
+    }
+
+    .about-text {
+        order: 2;
+    }
+
+    .about-text h1 {
+        font-size: 29px;
+        letter-spacing: 5px;
+        margin-bottom: 17px;
+    }
+
+    .heading-line {
+        margin-bottom: 20px;
+    }
+
+    .about-text p.bio {
+        font-size: 15px;
+        line-height: 1.75;
+        margin-bottom: 17px;
+    }
+
+    .about-actions {
+        margin-top: 25px;
+    }
+
+    .social-media-icons {
+        gap: 20px;
+    }
+}
+</style>
 </head>
 
 <body>
 
-    <!-- Home Navigation -->
-    <nav class="home-button">
-        <a href="index.html">Home</a>
-    </nav>
+<!-- SITE-WIDE NAVIGATION -->
 
-    <main class="about-section">
+<header class="site-header">
+    <div class="nav-inner">
 
-        <div class="about-container">
+        <a href="index.html" class="site-name">
+            Ankit Shrestha
+        </a>
 
-            <!-- Illustration -->
-            <div class="about-image">
-                <img
-                    src="About page art.png"
-                    alt="Hand-drawn portrait of Ankit Shrestha"
-                    class="profile-drawing"
-                >
-            </div>
+        <nav class="site-nav" aria-label="Main navigation">
+            <a href="index.html">Home</a>
 
-            <!-- Biography -->
-            <div class="about-text">
+            <a
+                href="About.html"
+                class="active"
+                aria-current="page"
+            >
+                About
+            </a>
 
-                <p class="eyebrow">
-                    Musician . Songwriter . Artist
-                </p>
+            <a href="Music.html">Music</a>
+            <a href="Video.html">Video</a>
+            <a href="Media.html">Media</a>
+            <a href="Community.html">Community</a>
+        </nav>
 
-                <h1>ABOUT</h1>
+    </div>
+</header>
 
-                <div class="heading-line"></div>
+<!-- ABOUT -->
 
-                <p class="bio">
-                    I started writing songs as a kid, mostly
-                    keeping them to myself. In my teenage years,
-                    I played in bands and began making my own
-                    music. Back then, I enjoyed the process of
-                    putting songs together, figuring out how
-                    words, melodies, and rhythms fit. When I
-                    moved to the US, I started busking and
-                    sharing my songs more openly.
-                </p>
+<main class="about-section">
 
-                <p class="bio">
-                    My music draws from different genres,
-                    cultures, and experiences, so I've never
-                    felt the need to stick to one particular
-                    sound. I'm influenced as much by the places
-                    I've been and the people I've met as by
-                    the music I listen to. Making music, for
-                    me, is simply a way to make sense of life
-                    and share a bit of it with others.
-                </p>
+    <div class="about-container">
 
-                <div class="about-actions">
-                    <a href="Music.html" class="music-link">
-                        Explore My Music
-                    </a>
-                </div>
+        <!-- ORIGINAL ILLUSTRATION -->
+
+        <div class="about-image">
+
+            <img
+                src="About page art.png"
+                alt="Hand-drawn portrait of Ankit Shrestha"
+                class="profile-drawing"
+            >
+
+        </div>
+
+        <!-- BIOGRAPHY -->
+
+        <div class="about-text">
+
+            <p class="eyebrow">
+                Musician · Songwriter · Artist
+            </p>
+
+            <h1>About</h1>
+
+            <div class="heading-line"></div>
+
+            <p class="bio">
+                I started writing songs as a kid, mostly
+                keeping them to myself. In my teenage years,
+                I played in bands and began making my own
+                music. Back then, I enjoyed the process of
+                putting songs together, figuring out how
+                words, melodies, and rhythms fit. When I
+                moved to the US, I started busking and
+                sharing my songs more openly.
+            </p>
+
+            <p class="bio">
+                My music draws from different genres,
+                cultures, and experiences, so I've never
+                felt the need to stick to one particular
+                sound. I'm influenced as much by the places
+                I've been and the people I've met as by
+                the music I listen to. Making music, for
+                me, is simply a way to make sense of life
+                and share a bit of it with others.
+            </p>
+
+            <div class="about-actions">
+
+                <a href="Music.html" class="music-link">
+                    Explore my music
+                </a>
 
             </div>
 
         </div>
 
-    </main>
+    </div>
 
-    <!-- Footer -->
-    <footer>
+</main>
 
-        <div class="social-media-icons">
+<!-- FOOTER -->
 
-            <a href="mailto:management.ankitshrestha@gmail.com"
-               aria-label="Email">
-                <img src="Mail.png" alt="Email">
-            </a>
+<footer>
 
-            <a href="https://instagram.com/ankit_shrestha_"
-               target="_blank"
-               rel="noopener noreferrer"
-               aria-label="Instagram">
-                <img src="Instagram.png" alt="Instagram">
-            </a>
+    <div class="social-media-icons">
 
-            <a href="https://facebook.com/ankitshresthamusic"
-               target="_blank"
-               rel="noopener noreferrer"
-               aria-label="Facebook">
-                <img src="Facebook.png" alt="Facebook">
-            </a>
+        <a
+            href="mailto:management.ankitshrestha@gmail.com"
+            aria-label="Email"
+        >
+            <img src="Mail.png" alt="Email">
+        </a>
 
-            <a href="https://open.spotify.com/artist/3CKS9fPsTBBcQoneFUkPu5"
-               target="_blank"
-               rel="noopener noreferrer"
-               aria-label="Spotify">
-                <img src="Spotify.png" alt="Spotify">
-            </a>
+        <a
+            href="https://instagram.com/ankit_shrestha_"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Instagram"
+        >
+            <img src="Instagram.png" alt="Instagram">
+        </a>
 
-            <a href="https://music.apple.com/gb/artist/ankit-shrestha/1142449792"
-               target="_blank"
-               rel="noopener noreferrer"
-               aria-label="Apple Music">
-                <img src="Apple.png" alt="Apple Music">
-            </a>
+        <a
+            href="https://facebook.com/ankitshresthamusic"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Facebook"
+        >
+            <img src="Facebook.png" alt="Facebook">
+        </a>
 
-            <a href="https://youtube.com/ankitshrestha"
-               target="_blank"
-               rel="noopener noreferrer"
-               aria-label="YouTube">
-                <img src="Youtube.png" alt="YouTube">
-            </a>
+        <a
+            href="https://open.spotify.com/artist/3CKS9fPsTBBcQoneFUkPu5"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Spotify"
+        >
+            <img src="Spotify.png" alt="Spotify">
+        </a>
 
-        </div>
+        <a
+            href="https://music.apple.com/gb/artist/ankit-shrestha/1142449792"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Apple Music"
+        >
+            <img src="Apple.png" alt="Apple Music">
+        </a>
 
-        <p class="footer-name">ANKIT SHRESTHA</p>
+        <a
+            href="https://youtube.com/ankitshrestha"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="YouTube"
+        >
+            <img src="Youtube.png" alt="YouTube">
+        </a>
 
-    </footer>
+    </div>
+
+    <p class="footer-name">
+        ANKIT SHRESTHA
+    </p>
+
+</footer>
 
 </body>
 </html>
