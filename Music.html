@@ -2,589 +2,801 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Music | Ankit Shrestha</title>
-
-    <style>
-        :root {
-            --bg: #1d252f;
-            --cream: #e7dfcc;
-            --muted: #aaa99f;
-            --line: rgba(231, 223, 204, 0.18);
-        }
-
-        * {
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            margin: 0;
-            background: var(--bg);
-            color: var(--cream);
-            font-family: "Trebuchet MS", Arial, sans-serif;
-            line-height: 1.6;
-        }
-
-        a {
-            color: inherit;
-            text-decoration: none;
-        }
-
-        a:hover {
-            opacity: 0.7;
-        }
-
-        /* Navigation */
-
-        .home-button {
-            position: absolute;
-            top: 28px;
-            left: 5%;
-        }
-
-        .home-button a {
-            display: inline-block;
-            border: 1px solid var(--cream);
-            border-radius: 3px;
-            padding: 8px 22px;
-            font-size: 14px;
-            letter-spacing: 1px;
-        }
-
-        /* Main layout */
-
-        .music-section {
-            max-width: 1040px;
-            margin: auto;
-            padding: 90px 35px 65px;
-        }
-
-        /* Music title and record icons */
-
-        .music-header {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 38px;
-            margin-bottom: 22px;
-        }
-
-        .music-header h1 {
-            font-size: 38px;
-            font-weight: 500;
-            letter-spacing: 9px;
-            margin: 0;
-        }
-
-        .album-icons img {
-            width: 75px;
-            height: 75px;
-            object-fit: contain;
-            display: block;
-        }
-
-        /* Main listen button */
-
-        .main-listen {
-            text-align: center;
-            margin-bottom: 75px;
-        }
-
-        .listen-button {
-            display: inline-block;
-            background: var(--cream);
-            color: var(--bg);
-            padding: 12px 32px;
-            font-size: 13px;
-            font-weight: bold;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            transition: 0.2s ease;
-        }
-
-        .listen-button:hover {
-            background: #ffffff;
-            opacity: 1;
-            transform: translateY(-2px);
-        }
-
-        /* Section headings */
-
-        .section-heading {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-            margin-bottom: 25px;
-        }
-
-        .section-heading h2 {
-            font-size: 23px;
-            font-weight: 500;
-            letter-spacing: 3px;
-            margin: 0;
-            white-space: nowrap;
-        }
-
-        .section-heading::after {
-            content: "";
-            height: 1px;
-            flex: 1;
-            background: var(--line);
-        }
-
-        /* Featured album */
-
-        .featured-release {
-            max-width: 870px;
-            margin: 0 auto 75px;
-        }
-
-        .release-label {
-            display: inline-block;
-            border: 1px solid var(--cream);
-            padding: 4px 11px;
-            font-size: 10px;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            margin-bottom: 10px;
-        }
-
-        .album-title {
-            font-size: 29px;
-            font-weight: 500;
-            margin: 0 0 25px;
-            letter-spacing: 1px;
-        }
-
-        .album-layout {
-            display: grid;
-            grid-template-columns: minmax(0, 0.85fr) minmax(0, 1fr);
-            gap: 45px;
-            align-items: center;
-        }
-
-        .album-cover img {
-            width: 100%;
-            max-width: 350px;
-            display: block;
-            aspect-ratio: 1;
-            object-fit: cover;
-            border-radius: 4px;
-        }
-
-        .album-tracks ol {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-            counter-reset: track;
-        }
-
-        .album-tracks li {
-            counter-increment: track;
-            display: flex;
-            gap: 20px;
-            align-items: center;
-            border-bottom: 1px solid var(--line);
-            padding: 9px 0;
-            font-size: 14px;
-        }
-
-        .album-tracks li::before {
-            content: counter(track, decimal-leading-zero);
-            color: var(--muted);
-            font-size: 11px;
-            letter-spacing: 1px;
-        }
-
-        /* Singles */
-
-        .singles {
-            margin-bottom: 70px;
-        }
-
-        .singles-grid {
-            display: grid;
-            grid-template-columns: repeat(2, minmax(0, 1fr));
-            column-gap: 55px;
-        }
-
-        .single-item {
-            padding: 14px 0;
-            border-bottom: 1px solid var(--line);
-            font-size: 15px;
-            display: flex;
-            align-items: flex-start;
-            gap: 18px;
-        }
-
-        .single-number {
-            font-size: 12px;
-            color: var(--muted);
-            min-width: 22px;
-            padding-top: 3px;
-        }
-
-        .single-title {
-            display: block;
-        }
-
-        .single-credit {
-            display: block;
-            color: var(--muted);
-            font-size: 12px;
-            margin-top: 3px;
-            line-height: 1.5;
-        }
-
-        /* Earlier albums */
-
-        .albums {
-            margin-bottom: 55px;
-        }
-
-        .album-grid {
-            display: grid;
-            grid-template-columns: repeat(2, minmax(0, 1fr));
-            gap: 25px;
-        }
-
-        .album-card {
-            border: 1px solid var(--line);
-            padding: 28px;
-            transition: border-color 0.2s ease;
-        }
-
-        .album-card:hover {
-            border-color: var(--cream);
-        }
-
-        .album-card .type {
-            font-size: 11px;
-            letter-spacing: 2px;
-            color: var(--muted);
-            text-transform: uppercase;
-        }
-
-        .album-card h3 {
-            font-size: 22px;
-            font-weight: 500;
-            margin: 12px 0 0;
-        }
-
-        /* Footer */
-
-        footer {
-            border-top: 1px solid var(--line);
-            padding: 35px 20px 45px;
-            text-align: center;
-        }
-
-        .social-media-icons {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 28px;
-        }
-
-        .social-media-icons img {
-            width: 24px;
-            height: 24px;
-            object-fit: contain;
-            transition: opacity 0.2s;
-        }
-
-        .footer-name {
-            margin-top: 25px;
-            font-size: 11px;
-            letter-spacing: 3px;
-            color: var(--muted);
-        }
-
-        /* Mobile layout */
-
-        @media (max-width: 700px) {
-            .music-section {
-                padding: 110px 22px 45px;
-            }
-
-            .home-button {
-                top: 20px;
-                left: 22px;
-            }
-
-            .music-header {
-                gap: 14px;
-                margin-bottom: 20px;
-            }
-
-            .music-header h1 {
-                font-size: 27px;
-                letter-spacing: 5px;
-            }
-
-            .album-icons img {
-                width: 48px;
-                height: 48px;
-            }
-
-            .main-listen {
-                margin-bottom: 60px;
-            }
-
-            .featured-release {
-                margin-bottom: 65px;
-            }
-
-            .album-title {
-                font-size: 26px;
-            }
-
-            .album-layout {
-                grid-template-columns: 1fr;
-                gap: 25px;
-            }
-
-            .album-cover img {
-                max-width: 350px;
-            }
-
-            .singles-grid,
-            .album-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .section-heading h2 {
-                font-size: 20px;
-            }
-
-            .social-media-icons {
-                gap: 22px;
-            }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Music | Ankit Shrestha</title>
+
+<style>
+:root {
+    --bg: #1d252f;
+    --cream: #e7dfcc;
+    --muted: #aaa99f;
+    --line: rgba(231, 223, 204, 0.22);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--cream);
+    font-family: "Trebuchet MS", Arial, sans-serif;
+    line-height: 1.5;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+/* NAVIGATION */
+
+.site-header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(29, 37, 47, 0.97);
+    border-bottom: 1px solid var(--line);
+}
+
+.nav-inner {
+    max-width: 1240px;
+    margin: auto;
+    min-height: 74px;
+    padding: 0 28px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+.site-name {
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    white-space: nowrap;
+}
+
+.site-name:hover {
+    opacity: 0.75;
+}
+
+.site-nav {
+    display: flex;
+    align-items: center;
+    gap: 31px;
+}
+
+.site-nav a {
+    position: relative;
+    display: inline-block;
+    padding: 27px 0 24px;
+    color: var(--muted);
+    font-size: 13px;
+    letter-spacing: 0.3px;
+    transition: color 0.2s ease;
+}
+
+.site-nav a:hover {
+    color: var(--cream);
+}
+
+.site-nav a.active {
+    color: var(--cream);
+}
+
+.site-nav a.active::after {
+    content: "";
+    position: absolute;
+    bottom: 17px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: var(--cream);
+}
+
+/* MAIN CONTENT */
+
+.music-page {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 42px 28px 55px;
+}
+
+/* PAGE HEADING */
+
+.music-heading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 26px;
+    margin-bottom: 18px;
+}
+
+.music-heading h1 {
+    margin: 0;
+    font-size: clamp(29px, 3.4vw, 42px);
+    font-weight: 500;
+    letter-spacing: 7px;
+    text-transform: uppercase;
+}
+
+.record-icon {
+    width: 54px;
+    height: 54px;
+    display: block;
+    object-fit: contain;
+    animation: recordRotate 18s linear infinite;
+}
+
+@keyframes recordRotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* LISTEN BUTTON */
+
+.listen-row {
+    text-align: center;
+    margin-bottom: 38px;
+}
+
+.listen-button {
+    display: inline-block;
+    background: var(--cream);
+    color: var(--bg);
+    padding: 11px 28px;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 1.3px;
+    transition: background 0.2s ease;
+}
+
+.listen-button:hover {
+    background: #fff8e8;
+}
+
+/* SECTION HEADINGS */
+
+.section-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid var(--line);
+    padding-bottom: 11px;
+}
+
+.section-heading h2 {
+    margin: 0;
+    font-size: 21px;
+    font-weight: 500;
+    letter-spacing: 1.1px;
+}
+
+.section-heading .section-detail {
+    color: var(--muted);
+    font-size: 12px;
+    letter-spacing: 0.5px;
+}
+
+/* FEATURED ALBUM */
+
+.featured-album {
+    margin-bottom: 43px;
+}
+
+.featured-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 420px) minmax(0, 1fr);
+    gap: 55px;
+    align-items: center;
+}
+
+.album-artwork img {
+    width: 100%;
+    display: block;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+}
+
+.album-details {
+    min-width: 0;
+}
+
+.album-eyebrow {
+    color: var(--muted);
+    font-size: 11px;
+    letter-spacing: 1.6px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+.album-details h2 {
+    font-size: clamp(27px, 3vw, 38px);
+    font-weight: 500;
+    line-height: 1.25;
+    margin: 0 0 25px;
+}
+
+.album-details h2 span {
+    font-size: 0.65em;
+    font-weight: 400;
+    color: var(--muted);
+}
+
+.tracklist {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    counter-reset: tracks;
+}
+
+.tracklist li {
+    counter-increment: tracks;
+    display: flex;
+    align-items: baseline;
+    gap: 19px;
+    padding: 9px 0;
+    border-bottom: 1px solid var(--line);
+    font-size: 14px;
+}
+
+.tracklist li:first-child {
+    border-top: 1px solid var(--line);
+}
+
+.tracklist li::before {
+    content: counter(tracks, decimal-leading-zero);
+    color: var(--muted);
+    font-size: 11px;
+    min-width: 20px;
+    letter-spacing: 1px;
+}
+
+/* SINGLES */
+
+.singles {
+    margin-bottom: 42px;
+}
+
+.singles-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 50px;
+}
+
+.single {
+    display: flex;
+    align-items: baseline;
+    gap: 18px;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--line);
+}
+
+.single-number {
+    color: var(--muted);
+    font-size: 11px;
+    min-width: 23px;
+    letter-spacing: 0.5px;
+}
+
+.single-name {
+    font-size: 14px;
+}
+
+.single-credit {
+    display: block;
+    color: var(--muted);
+    font-size: 11px;
+    margin-top: 4px;
+}
+
+/* EARLIER ALBUMS */
+
+.earlier-albums {
+    margin-bottom: 15px;
+}
+
+.album-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 22px;
+}
+
+.album-card {
+    padding: 24px 27px;
+    border: 1px solid var(--line);
+    transition: border-color 0.2s ease;
+}
+
+.album-card:hover {
+    border-color: var(--cream);
+}
+
+.album-card .type {
+    display: block;
+    color: var(--muted);
+    font-size: 11px;
+    letter-spacing: 1.3px;
+    margin-bottom: 10px;
+}
+
+.album-card h3 {
+    font-size: 21px;
+    font-weight: 500;
+    margin: 0;
+}
+
+/* FOOTER */
+
+footer {
+    border-top: 1px solid var(--line);
+    padding: 28px 20px 30px;
+    text-align: center;
+}
+
+.social-media-icons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 28px;
+}
+
+.social-media-icons a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.social-media-icons img {
+    display: block;
+    width: 27px;
+    height: 27px;
+    object-fit: contain;
+    transition: opacity 0.2s ease;
+}
+
+.social-media-icons a:hover img {
+    opacity: 0.65;
+}
+
+.footer-name {
+    margin: 17px 0 0;
+    font-size: 10px;
+    letter-spacing: 2px;
+    color: var(--muted);
+}
+
+/* TABLET */
+
+@media (max-width: 900px) {
+    .nav-inner {
+        gap: 18px;
+    }
+
+    .site-nav {
+        gap: 17px;
+    }
+
+    .site-nav a {
+        font-size: 12px;
+    }
+
+    .featured-layout {
+        grid-template-columns: minmax(0, 0.9fr) minmax(0, 1fr);
+        gap: 30px;
+    }
+}
+
+/* MOBILE */
+
+@media (max-width: 650px) {
+
+    .nav-inner {
+        min-height: auto;
+        padding: 15px 18px 0;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .site-name {
+        font-size: 15px;
+    }
+
+    .site-nav {
+        width: 100%;
+        justify-content: space-between;
+        gap: 12px;
+        overflow-x: auto;
+        scrollbar-width: none;
+    }
+
+    .site-nav::-webkit-scrollbar {
+        display: none;
+    }
+
+    .site-nav a {
+        flex-shrink: 0;
+        padding: 8px 0 15px;
+        font-size: 12px;
+    }
+
+    .site-nav a.active::after {
+        bottom: 7px;
+    }
+
+    .music-page {
+        padding: 30px 20px 40px;
+    }
+
+    .music-heading {
+        gap: 15px;
+        margin-bottom: 16px;
+    }
+
+    .music-heading h1 {
+        font-size: 29px;
+        letter-spacing: 5px;
+    }
+
+    .record-icon {
+        width: 39px;
+        height: 39px;
+    }
+
+    .listen-row {
+        margin-bottom: 30px;
+    }
+
+    .featured-layout {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .album-artwork img {
+        max-width: 440px;
+        margin: 0 auto;
+    }
+
+    .album-details h2 {
+        font-size: 28px;
+        margin-bottom: 17px;
+    }
+
+    .featured-album {
+        margin-bottom: 37px;
+    }
+
+    .singles {
+        margin-bottom: 37px;
+    }
+
+    .singles-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .album-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .section-heading h2 {
+        font-size: 19px;
+    }
+
+    .album-card {
+        padding: 20px;
+    }
+
+    .social-media-icons {
+        gap: 20px;
+    }
+}
+
+/* REDUCED MOTION */
+
+@media (prefers-reduced-motion: reduce) {
+    .record-icon {
+        animation: none;
+    }
+
+    html {
+        scroll-behavior: auto;
+    }
+}
+</style>
 </head>
 
 <body>
 
-    <!-- Home Navigation -->
-    <nav class="home-button">
-        <a href="index.html">Home</a>
-    </nav>
+<!-- SITE-WIDE NAVIGATION -->
 
-    <main class="music-section">
+<header class="site-header">
+    <div class="nav-inner">
 
-        <!-- Page Header -->
-        <header class="music-header">
-            <div class="album-icons">
-                <img src="Music Page art.png" alt="">
+        <a href="index.html" class="site-name">
+            Ankit Shrestha
+        </a>
+
+        <nav class="site-nav" aria-label="Main navigation">
+            <a href="index.html">Home</a>
+            <a href="About.html">About</a>
+            <a href="Music.html"
+               class="active"
+               aria-current="page">Music</a>
+            <a href="Video.html">Video</a>
+            <a href="Media.html">Media</a>
+            <a href="Community.html">Community</a>
+        </nav>
+
+    </div>
+</header>
+
+<main class="music-page">
+
+    <!-- MUSIC HEADING -->
+
+    <div class="music-heading">
+
+        <img
+            class="record-icon"
+            src="Music Page art.png"
+            alt=""
+        >
+
+        <h1>Music</h1>
+
+        <img
+            class="record-icon"
+            src="Music Page art.png"
+            alt=""
+        >
+
+    </div>
+
+    <!-- LISTEN LINK -->
+
+    <div class="listen-row">
+        <a
+            class="listen-button"
+            href="https://linktr.ee/ankitshresthamusic"
+            target="_blank"
+            rel="noopener noreferrer"
+        >
+            Listen now
+        </a>
+    </div>
+
+    <!-- NAYA DIN -->
+
+    <section class="featured-album">
+
+        <div class="featured-layout">
+
+            <div class="album-artwork">
+                <img
+                    src="Naya Din.jpg"
+                    alt="Naya Din album cover"
+                >
             </div>
 
-            <h1>MUSIC</h1>
+            <div class="album-details">
 
-            <div class="album-icons">
-                <img src="Music Page art.png" alt="">
-            </div>
-        </header>
-
-        <!-- Listen to all music -->
-        <div class="main-listen">
-            <a class="listen-button"
-               href="https://linktr.ee/ankitshresthamusic"
-               target="_blank"
-               rel="noopener noreferrer">
-                Listen Now
-            </a>
-        </div>
-
-        <!-- Featured Album -->
-        <section class="featured-release">
-
-            <span class="release-label">Featured Album</span>
-
-            <h2 class="album-title">
-                Naya Din (नयाँ दिन)
-            </h2>
-
-            <div class="album-layout">
-
-                <div class="album-cover">
-                    <img src="Naya Din.jpg"
-                         alt="Naya Din album artwork">
+                <div class="album-eyebrow">
+                    Featured album
                 </div>
 
-                <div class="album-tracks">
-                    <ol>
-                        <li>Intro</li>
-                        <li>Banda Aakha ko Chitra</li>
-                        <li>Sunaulo Rajya</li>
-                        <li>Somewhere in the West</li>
-                        <li>Afnai Chhaya</li>
-                        <li>Winter</li>
-                        <li>Trains</li>
-                        <li>Taadha ko Taapu</li>
-                    </ol>
-                </div>
+                <h2>
+                    Naya Din
+                    <span>(नयाँ दिन)</span>
+                </h2>
+
+                <ol class="tracklist">
+                    <li>Intro</li>
+                    <li>Banda Aakha ko Chitra</li>
+                    <li>Sunaulo Rajya</li>
+                    <li>Somewhere in the West</li>
+                    <li>Afnai Chhaya</li>
+                    <li>Winter</li>
+                    <li>Trains</li>
+                    <li>Taadha ko Taapu</li>
+                </ol>
 
             </div>
-        </section>
-
-        <!-- Singles -->
-        <section class="singles">
-
-            <div class="section-heading">
-                <h2>SINGLES</h2>
-            </div>
-
-            <div class="singles-grid">
-
-                <div class="single-item">
-                    <span class="single-number">01</span>
-                    <span class="single-title">Sahara</span>
-                </div>
-
-                <div class="single-item">
-                    <span class="single-number">02</span>
-                    <div>
-                        <span class="single-title">Long Gone</span>
-                        <span class="single-credit">
-                            Featured in Greenland 2: Migration
-                        </span>
-                    </div>
-                </div>
-
-                <div class="single-item">
-                    <span class="single-number">03</span>
-                    <span class="single-title">Dust and Bones</span>
-                </div>
-
-                <div class="single-item">
-                    <span class="single-number">04</span>
-                    <span class="single-title">Oh Love</span>
-                </div>
-
-                <div class="single-item">
-                    <span class="single-number">05</span>
-                    <span class="single-title">Sullen Shade</span>
-                </div>
-
-                <div class="single-item">
-                    <span class="single-number">06</span>
-                    <span class="single-title">River</span>
-                </div>
-
-                <div class="single-item">
-                    <span class="single-number">07</span>
-                    <span class="single-title">Saas</span>
-                </div>
-
-                <div class="single-item">
-                    <span class="single-number">08</span>
-                    <span class="single-title">Kaalo Pankha</span>
-                </div>
-
-                <div class="single-item">
-                    <span class="single-number">09</span>
-                    <span class="single-title">Eutai Aakash</span>
-                </div>
-
-                <div class="single-item">
-                    <span class="single-number">10</span>
-                    <span class="single-title">Kathaa</span>
-                </div>
-
-                <div class="single-item">
-                    <span class="single-number">11</span>
-                    <span class="single-title">Anaginti Aatma</span>
-                </div>
-
-                <div class="single-item">
-                    <span class="single-number">12</span>
-                    <span class="single-title">Yaadharu</span>
-                </div>
-
-            </div>
-        </section>
-
-        <!-- Previous Albums -->
-        <section class="albums">
-
-            <div class="section-heading">
-                <h2>MORE ALBUMS</h2>
-            </div>
-
-            <div class="album-grid">
-
-                <div class="album-card">
-                    <span class="type">Album</span>
-                    <h3>Kathmandu Saharma</h3>
-                </div>
-
-                <div class="album-card">
-                    <span class="type">Album</span>
-                    <h3>Fingers and Fables</h3>
-                </div>
-
-            </div>
-        </section>
-
-    </main>
-
-    <!-- Footer -->
-    <footer>
-
-        <div class="social-media-icons">
-
-            <a href="mailto:management.ankitshrestha@gmail.com"
-               aria-label="Email">
-                <img src="Mail.png" alt="Email">
-            </a>
-
-            <a href="https://instagram.com/ankit_shrestha_"
-               target="_blank"
-               rel="noopener noreferrer"
-               aria-label="Instagram">
-                <img src="Instagram.png" alt="Instagram">
-            </a>
-
-            <a href="https://facebook.com/ankitshresthamusic"
-               target="_blank"
-               rel="noopener noreferrer"
-               aria-label="Facebook">
-                <img src="Facebook.png" alt="Facebook">
-            </a>
-
-            <a href="https://open.spotify.com/artist/3CKS9fPsTBBcQoneFUkPu5"
-               target="_blank"
-               rel="noopener noreferrer"
-               aria-label="Spotify">
-                <img src="Spotify.png" alt="Spotify">
-            </a>
-
-            <a href="https://music.apple.com/gb/artist/ankit-shrestha/1142449792"
-               target="_blank"
-               rel="noopener noreferrer"
-               aria-label="Apple Music">
-                <img src="Apple.png" alt="Apple Music">
-            </a>
-
-            <a href="https://youtube.com/ankitshrestha"
-               target="_blank"
-               rel="noopener noreferrer"
-               aria-label="YouTube">
-                <img src="Youtube.png" alt="YouTube">
-            </a>
 
         </div>
 
-        <p class="footer-name">ANKIT SHRESTHA</p>
+    </section>
 
-    </footer>
+    <!-- SINGLES -->
+
+    <section class="singles">
+
+        <div class="section-heading">
+            <h2>Singles</h2>
+            <span class="section-detail">
+                12 releases
+            </span>
+        </div>
+
+        <div class="singles-grid">
+
+            <div class="single">
+                <span class="single-number">01</span>
+                <span class="single-name">Sahara</span>
+            </div>
+
+            <div class="single">
+                <span class="single-number">02</span>
+                <div>
+                    <span class="single-name">Long Gone</span>
+                    <span class="single-credit">
+                        Featured in Greenland 2: Migration
+                    </span>
+                </div>
+            </div>
+
+            <div class="single">
+                <span class="single-number">03</span>
+                <span class="single-name">Dust and Bones</span>
+            </div>
+
+            <div class="single">
+                <span class="single-number">04</span>
+                <span class="single-name">Oh Love</span>
+            </div>
+
+            <div class="single">
+                <span class="single-number">05</span>
+                <span class="single-name">Sullen Shade</span>
+            </div>
+
+            <div class="single">
+                <span class="single-number">06</span>
+                <span class="single-name">River</span>
+            </div>
+
+            <div class="single">
+                <span class="single-number">07</span>
+                <span class="single-name">Saas</span>
+            </div>
+
+            <div class="single">
+                <span class="single-number">08</span>
+                <span class="single-name">Kaalo Pankha</span>
+            </div>
+
+            <div class="single">
+                <span class="single-number">09</span>
+                <span class="single-name">Eutai Aakash</span>
+            </div>
+
+            <div class="single">
+                <span class="single-number">10</span>
+                <span class="single-name">Kathaa</span>
+            </div>
+
+            <div class="single">
+                <span class="single-number">11</span>
+                <span class="single-name">Anaginti Aatma</span>
+            </div>
+
+            <div class="single">
+                <span class="single-number">12</span>
+                <span class="single-name">Yaadharu</span>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- EARLIER ALBUMS -->
+
+    <section class="earlier-albums">
+
+        <div class="section-heading">
+            <h2>More albums</h2>
+            <span class="section-detail">
+                Earlier releases
+            </span>
+        </div>
+
+        <div class="album-grid">
+
+            <div class="album-card">
+                <span class="type">Album</span>
+                <h3>Kathmandu Saharma</h3>
+            </div>
+
+            <div class="album-card">
+                <span class="type">Album</span>
+                <h3>Fingers and Fables</h3>
+            </div>
+
+        </div>
+
+    </section>
+
+</main>
+
+<!-- FOOTER -->
+
+<footer>
+
+    <div class="social-media-icons">
+
+        <a
+            href="mailto:management.ankitshrestha@gmail.com"
+            aria-label="Email"
+        >
+            <img src="Mail.png" alt="Email">
+        </a>
+
+        <a
+            href="https://instagram.com/ankit_shrestha_"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Instagram"
+        >
+            <img src="Instagram.png" alt="Instagram">
+        </a>
+
+        <a
+            href="https://facebook.com/ankitshresthamusic"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Facebook"
+        >
+            <img src="Facebook.png" alt="Facebook">
+        </a>
+
+        <a
+            href="https://open.spotify.com/artist/3CKS9fPsTBBcQoneFUkPu5"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Spotify"
+        >
+            <img src="Spotify.png" alt="Spotify">
+        </a>
+
+        <a
+            href="https://music.apple.com/gb/artist/ankit-shrestha/1142449792"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Apple Music"
+        >
+            <img src="Apple.png" alt="Apple Music">
+        </a>
+
+        <a
+            href="https://youtube.com/ankitshrestha"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="YouTube"
+        >
+            <img src="Youtube.png" alt="YouTube">
+        </a>
+
+    </div>
+
+    <p class="footer-name">
+        ANKIT SHRESTHA
+    </p>
+
+</footer>
 
 </body>
 </html>
