@@ -2,538 +2,561 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Community | Ankit Shrestha</title>
-
-    <style>
-        :root {
-            --bg: #1d252f;
-            --cream: #e7dfcc;
-            --muted: #aaa99f;
-            --line: rgba(231, 223, 204, 0.22);
-        }
-
-        * {
-            box-sizing: border-box;
-        }
-
-        html {
-            height: 100%;
-        }
-
-        body {
-            margin: 0;
-            min-height: 100vh;
-            min-height: 100svh;
-            background: var(--bg);
-            color: var(--cream);
-            font-family: "Trebuchet MS", Arial, sans-serif;
-        }
-
-        a {
-            color: inherit;
-            text-decoration: none;
-        }
-
-        /* PAGE LAYOUT */
-
-        .page {
-            min-height: 100vh;
-            min-height: 100svh;
-            display: flex;
-            flex-direction: column;
-        }
-
-        /* HOME BUTTON */
-
-        .home-button {
-            position: absolute;
-            top: 28px;
-            left: 5%;
-            z-index: 10;
-        }
-
-        .home-button a {
-            display: inline-block;
-            border: 1px solid var(--cream);
-            border-radius: 3px;
-            padding: 8px 22px;
-            font-size: 14px;
-            letter-spacing: 1px;
-            transition: background 0.2s ease,
-                        color 0.2s ease;
-        }
-
-        .home-button a:hover {
-            background: var(--cream);
-            color: var(--bg);
-        }
-
-        /* MAIN CONTENT */
-
-        main {
-            flex: 1;
-            min-height: 0;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding: 85px 24px 25px;
-        }
-
-        /* PAGE TITLE */
-
-        .page-title {
-            font-size: clamp(30px, 4vw, 42px);
-            font-weight: 500;
-            letter-spacing: 9px;
-            line-height: 1.2;
-            margin: 0 0 18px;
-
-            animation: gentleReveal 0.8s ease-out both;
-        }
-
-        /* ORIGINAL ANKIT SHRESTHA LOGO */
-
-        .logo-container {
-            width: min(460px, 80vw);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-
-            /* Reduced spacing below the logo */
-            margin: 0 auto 8px;
-
-            animation: gentleReveal 1s ease-out 0.2s both;
-        }
-
-        .logo-container img {
-            display: block;
-            width: 100%;
-            height: auto;
-            object-fit: contain;
-        }
-
-        /* COMMUNITY TEXT */
-
-        .community-copy {
-            width: 100%;
-            max-width: 850px;
-        }
-
-        .community-copy p {
-            font-size: 15px;
-            font-weight: 400;
-            line-height: 1.7;
-            color: var(--muted);
-
-            /* Keep sentence on one line on desktop */
-            white-space: nowrap;
-
-            margin: 0 auto 25px;
-
-            animation: gentleReveal 0.9s ease-out 0.45s both;
-        }
-
-        /* JOIN BUTTON */
-
-        .join-button {
-            display: inline-block;
-            background: var(--cream);
-            color: var(--bg);
-            border: 1px solid var(--cream);
-            border-radius: 3px;
-            padding: 14px 35px;
-            font-size: 12px;
-            font-weight: bold;
-            letter-spacing: 2px;
-
-            transition: background 0.25s ease,
-                        color 0.25s ease;
-
-            animation: gentleReveal 0.9s ease-out 0.65s both;
-        }
-
-        .join-button:hover {
-            background: transparent;
-            color: var(--cream);
-        }
-
-        /* CONTACT */
-
-        .contact {
-            margin-top: 25px;
-            font-size: 12px;
-            color: var(--muted);
-            letter-spacing: 0.3px;
-
-            animation: gentleReveal 0.9s ease-out 0.85s both;
-        }
-
-        .contact a {
-            color: var(--cream);
-            border-bottom: 1px solid var(--line);
-            padding-bottom: 3px;
-            transition: border-color 0.2s ease;
-        }
-
-        .contact a:hover {
-            border-color: var(--cream);
-        }
-
-        /* SUBTLE ENTRANCE ANIMATION */
-
-        @keyframes gentleReveal {
-            from {
-                opacity: 0;
-                transform: translateY(10px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* FOOTER */
-
-        footer {
-            flex-shrink: 0;
-            padding: 20px 20px 30px;
-            text-align: center;
-        }
-
-        footer::before {
-            content: "";
-            display: block;
-            width: min(420px, 75%);
-            height: 1px;
-            background: var(--line);
-            margin: 0 auto 22px;
-        }
-
-        .social-media-icons {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 30px;
-        }
-
-        .social-media-icons a {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            width: 42px;
-            height: 42px;
-            transition: opacity 0.2s ease;
-        }
-
-        .social-media-icons img {
-            display: block;
-            width: 34px;
-            height: 34px;
-            object-fit: contain;
-        }
-
-        .social-media-icons a:hover {
-            opacity: 0.65;
-        }
-
-        /* TABLET */
-
-        @media (max-width: 850px) {
-            .logo-container {
-                width: min(420px, 80vw);
-            }
-
-            .community-copy p {
-                font-size: 14px;
-            }
-        }
-
-        /* MOBILE */
-
-        @media (max-width: 600px) {
-
-            .home-button {
-                top: 20px;
-                left: 22px;
-            }
-
-            .home-button a {
-                padding: 7px 17px;
-                font-size: 12px;
-            }
-
-            main {
-                padding: 80px 18px 18px;
-            }
-
-            .page-title {
-                font-size: 29px;
-                letter-spacing: 6px;
-                margin-bottom: 15px;
-            }
-
-            .logo-container {
-                width: min(340px, 83vw);
-                margin-bottom: 6px;
-            }
-
-            .community-copy p {
-                font-size: 13px;
-                line-height: 1.6;
-
-                /* Allow wrapping on narrow screens */
-                white-space: normal;
-
-                margin-bottom: 20px;
-            }
-
-            .join-button {
-                padding: 13px 25px;
-                font-size: 11px;
-                letter-spacing: 1.5px;
-            }
-
-            .contact {
-                margin-top: 20px;
-                font-size: 11px;
-                line-height: 1.6;
-            }
-
-            footer {
-                padding: 12px 12px 20px;
-            }
-
-            footer::before {
-                margin-bottom: 16px;
-            }
-
-            .social-media-icons {
-                gap: 14px;
-            }
-
-            .social-media-icons a {
-                width: 38px;
-                height: 38px;
-            }
-
-            .social-media-icons img {
-                width: 30px;
-                height: 30px;
-            }
-        }
-
-        /* SHORT SCREENS */
-
-        @media (max-height: 720px) {
-
-            main {
-                padding-top: 65px;
-                padding-bottom: 10px;
-            }
-
-            .page-title {
-                margin-bottom: 10px;
-            }
-
-            .logo-container {
-                width: min(340px, 70vw);
-                margin-bottom: 4px;
-            }
-
-            .community-copy p {
-                margin-bottom: 15px;
-            }
-
-            .contact {
-                margin-top: 15px;
-            }
-
-            footer {
-                padding-top: 8px;
-                padding-bottom: 12px;
-            }
-
-            footer::before {
-                margin-bottom: 12px;
-            }
-        }
-
-        /* VERY SHORT MOBILE SCREENS */
-
-        @media (max-width: 600px) and (max-height: 650px) {
-
-            main {
-                padding-top: 60px;
-                padding-bottom: 8px;
-            }
-
-            .page-title {
-                font-size: 25px;
-                margin-bottom: 8px;
-            }
-
-            .logo-container {
-                width: min(260px, 65vw);
-                margin-bottom: 4px;
-            }
-
-            .community-copy p {
-                font-size: 12px;
-                margin-bottom: 12px;
-            }
-
-            .join-button {
-                padding: 11px 20px;
-            }
-
-            .contact {
-                margin-top: 12px;
-            }
-
-            footer {
-                padding-top: 8px;
-                padding-bottom: 10px;
-            }
-
-            footer::before {
-                margin-bottom: 10px;
-            }
-
-            .social-media-icons img {
-                width: 27px;
-                height: 27px;
-            }
-        }
-
-        /* ACCESSIBILITY */
-
-        @media (prefers-reduced-motion: reduce) {
-
-            .page-title,
-            .logo-container,
-            .community-copy p,
-            .join-button,
-            .contact {
-                animation: none;
-            }
-
-            *,
-            *::before,
-            *::after {
-                transition: none !important;
-            }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Community | Ankit Shrestha</title>
+
+<style>
+:root {
+    --bg: #1d252f;
+    --cream: #e7dfcc;
+    --muted: #aaa99f;
+    --line: rgba(231, 223, 204, 0.22);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    min-height: 100svh;
+    background: var(--bg);
+    color: var(--cream);
+    font-family: "Trebuchet MS", Arial, sans-serif;
+    line-height: 1.5;
+    display: flex;
+    flex-direction: column;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+/* NAVIGATION */
+
+.site-header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(29, 37, 47, 0.97);
+    border-bottom: 1px solid var(--line);
+}
+
+.nav-inner {
+    max-width: 1240px;
+    margin: auto;
+    min-height: 74px;
+    padding: 0 28px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+.site-name {
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    white-space: nowrap;
+}
+
+.site-name:hover {
+    opacity: 0.75;
+}
+
+.site-nav {
+    display: flex;
+    align-items: center;
+    gap: 31px;
+}
+
+.site-nav a {
+    position: relative;
+    display: inline-block;
+    padding: 27px 0 24px;
+    color: var(--muted);
+    font-size: 13px;
+    letter-spacing: 0.3px;
+    transition: color 0.2s ease;
+}
+
+.site-nav a:hover {
+    color: var(--cream);
+}
+
+.site-nav a.active {
+    color: var(--cream);
+}
+
+.site-nav a.active::after {
+    content: "";
+    position: absolute;
+    bottom: 17px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: var(--cream);
+}
+
+/* MAIN COMMUNITY CONTENT */
+
+.community-section {
+    flex: 1;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 38px 28px 42px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+/* PAGE HEADING */
+
+.community-section h1 {
+    margin: 0 0 10px;
+    font-size: clamp(29px, 3.4vw, 42px);
+    font-weight: 500;
+    letter-spacing: 7px;
+    text-transform: uppercase;
+    line-height: 1.2;
+
+    animation: gentleReveal 0.7s ease-out both;
+}
+
+/* ORIGINAL HANDWRITTEN LOGO */
+
+.logo-container {
+    width: min(460px, 80vw);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 8px;
+
+    animation: gentleReveal 0.8s ease-out 0.15s both;
+}
+
+.logo-container img {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+/* MAILING LIST */
+
+.community-copy {
+    width: 100%;
+    max-width: 850px;
+}
+
+.community-copy p {
+    margin: 0 auto 24px;
+    color: var(--muted);
+    font-size: 15px;
+    line-height: 1.7;
+    white-space: nowrap;
+
+    animation: gentleReveal 0.8s ease-out 0.3s both;
+}
+
+/* JOIN BUTTON */
+
+.join-button {
+    display: inline-block;
+    background: var(--cream);
+    color: var(--bg);
+    padding: 12px 30px;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 1.3px;
+    transition: background 0.2s ease;
+
+    animation: gentleReveal 0.8s ease-out 0.45s both;
+}
+
+.join-button:hover {
+    background: #fff8e8;
+}
+
+/* CONTACT */
+
+.contact {
+    margin-top: 25px;
+    font-size: 12px;
+    line-height: 1.7;
+    color: var(--muted);
+
+    animation: gentleReveal 0.8s ease-out 0.6s both;
+}
+
+.contact a {
+    color: var(--cream);
+    border-bottom: 1px solid var(--line);
+    padding-bottom: 3px;
+    transition: border-color 0.2s ease;
+}
+
+.contact a:hover {
+    border-color: var(--cream);
+}
+
+/* ONE-TIME ENTRANCE ANIMATION */
+
+@keyframes gentleReveal {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* FOOTER */
+
+footer {
+    flex-shrink: 0;
+    border-top: 1px solid var(--line);
+    padding: 28px 20px 30px;
+    text-align: center;
+}
+
+.social-media-icons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 28px;
+}
+
+.social-media-icons a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.social-media-icons img {
+    display: block;
+    width: 27px;
+    height: 27px;
+    object-fit: contain;
+    transition: opacity 0.2s ease;
+}
+
+.social-media-icons a:hover img {
+    opacity: 0.65;
+}
+
+.footer-name {
+    margin: 17px 0 0;
+    font-size: 10px;
+    letter-spacing: 2px;
+    color: var(--muted);
+}
+
+/* TABLET */
+
+@media (max-width: 900px) {
+
+    .nav-inner {
+        gap: 18px;
+    }
+
+    .site-nav {
+        gap: 17px;
+    }
+
+    .site-nav a {
+        font-size: 12px;
+    }
+
+    .logo-container {
+        width: min(420px, 80vw);
+    }
+
+    .community-copy p {
+        font-size: 14px;
+    }
+}
+
+/* MOBILE */
+
+@media (max-width: 650px) {
+
+    .nav-inner {
+        min-height: auto;
+        padding: 15px 18px 0;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .site-name {
+        font-size: 15px;
+    }
+
+    .site-nav {
+        width: 100%;
+        justify-content: space-between;
+        gap: 12px;
+        overflow-x: auto;
+        scrollbar-width: none;
+    }
+
+    .site-nav::-webkit-scrollbar {
+        display: none;
+    }
+
+    .site-nav a {
+        flex-shrink: 0;
+        padding: 8px 0 15px;
+        font-size: 12px;
+    }
+
+    .site-nav a.active::after {
+        bottom: 7px;
+    }
+
+    .community-section {
+        padding: 28px 20px 35px;
+    }
+
+    .community-section h1 {
+        font-size: 29px;
+        letter-spacing: 5px;
+        margin-bottom: 10px;
+    }
+
+    .logo-container {
+        width: min(340px, 83vw);
+        margin-bottom: 6px;
+    }
+
+    .community-copy p {
+        font-size: 13px;
+        line-height: 1.6;
+        white-space: normal;
+        margin-bottom: 20px;
+    }
+
+    .join-button {
+        padding: 12px 25px;
+        font-size: 11px;
+    }
+
+    .contact {
+        margin-top: 20px;
+        font-size: 11px;
+    }
+
+    .social-media-icons {
+        gap: 20px;
+    }
+}
+
+/* SHORT SCREENS */
+
+@media (max-height: 720px) {
+
+    .community-section {
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+
+    .community-section h1 {
+        margin-bottom: 6px;
+    }
+
+    .logo-container {
+        width: min(340px, 70vw);
+        margin-bottom: 4px;
+    }
+
+    .community-copy p {
+        margin-bottom: 15px;
+    }
+
+    .contact {
+        margin-top: 15px;
+    }
+
+    footer {
+        padding-top: 18px;
+        padding-bottom: 18px;
+    }
+}
+
+/* ACCESSIBILITY */
+
+@media (prefers-reduced-motion: reduce) {
+
+    html {
+        scroll-behavior: auto;
+    }
+
+    .community-section h1,
+    .logo-container,
+    .community-copy p,
+    .join-button,
+    .contact {
+        animation: none;
+    }
+}
+</style>
 </head>
 
 <body>
 
-    <div class="page">
+<!-- NAVIGATION -->
 
-        <!-- HOME BUTTON -->
-        <nav class="home-button">
+<header class="site-header">
+    <div class="nav-inner">
+
+        <a href="index.html" class="site-name">
+            Ankit Shrestha
+        </a>
+
+        <nav class="site-nav" aria-label="Main navigation">
             <a href="index.html">Home</a>
+            <a href="About.html">About</a>
+            <a href="Music.html">Music</a>
+            <a href="Video.html">Video</a>
+            <a href="Media.html">Media</a>
+
+            <a
+                href="Community.html"
+                class="active"
+                aria-current="page"
+            >
+                Community
+            </a>
         </nav>
 
-        <!-- MAIN CONTENT -->
-        <main>
+    </div>
+</header>
 
-            <h1 class="page-title">
-                COMMUNITY
-            </h1>
+<!-- COMMUNITY -->
 
-            <!-- ORIGINAL LOGO -->
-            <div class="logo-container">
-                <img
-                    src="Name Logo.png"
-                    alt="Ankit Shrestha"
-                >
-            </div>
+<main class="community-section">
 
-            <!-- MAILING LIST -->
-            <div class="community-copy">
+    <h1>Community</h1>
 
-                <p>
-                    Join the mailing list for new music, upcoming shows, and occasional updates.
-                </p>
+    <!-- ORIGINAL LOGO: UNCHANGED -->
 
-                <a
-                    class="join-button"
-                    href="https://docs.google.com/forms/d/e/1FAIpQLSdQg2vs9KaWiMHX-tBqh1cNb_tsnM44Z4mcUuKVdnmabEOeUg/viewform"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-                    JOIN THE COMMUNITY
-                </a>
+    <div class="logo-container">
+        <img
+            src="Name Logo.png"
+            alt="Ankit Shrestha handwritten logo"
+        >
+    </div>
 
-                <div class="contact">
-                    For bookings, collaborations & inquiries:
-                    <a href="mailto:management.ankitshrestha@gmail.com">
-                        Get in touch
-                    </a>
-                </div>
+    <!-- MAILING LIST -->
 
-            </div>
+    <div class="community-copy">
 
-        </main>
+        <p>
+            Join the mailing list for new music, upcoming shows, and occasional updates.
+        </p>
 
-        <!-- FOOTER -->
-        <footer>
+        <a
+            class="join-button"
+            href="https://docs.google.com/forms/d/e/1FAIpQLSdQg2vs9KaWiMHX-tBqh1cNb_tsnM44Z4mcUuKVdnmabEOeUg/viewform"
+            target="_blank"
+            rel="noopener noreferrer"
+        >
+            Join the community
+        </a>
 
-            <div class="social-media-icons">
+        <!-- CONTACT -->
 
-                <a href="mailto:management.ankitshrestha@gmail.com"
-                   aria-label="Email">
-                    <img src="Mail.png" alt="Email">
-                </a>
-
-                <a href="https://instagram.com/ankit_shrestha_"
-                   target="_blank"
-                   rel="noopener noreferrer"
-                   aria-label="Instagram">
-                    <img src="Instagram.png" alt="Instagram">
-                </a>
-
-                <a href="https://facebook.com/ankitshresthamusic"
-                   target="_blank"
-                   rel="noopener noreferrer"
-                   aria-label="Facebook">
-                    <img src="Facebook.png" alt="Facebook">
-                </a>
-
-                <a href="https://open.spotify.com/artist/3CKS9fPsTBBcQoneFUkPu5"
-                   target="_blank"
-                   rel="noopener noreferrer"
-                   aria-label="Spotify">
-                    <img src="Spotify.png" alt="Spotify">
-                </a>
-
-                <a href="https://music.apple.com/gb/artist/ankit-shrestha/1142449792"
-                   target="_blank"
-                   rel="noopener noreferrer"
-                   aria-label="Apple Music">
-                    <img src="Apple.png" alt="Apple Music">
-                </a>
-
-                <a href="https://youtube.com/ankitshrestha"
-                   target="_blank"
-                   rel="noopener noreferrer"
-                   aria-label="YouTube">
-                    <img src="Youtube.png" alt="YouTube">
-                </a>
-
-            </div>
-
-        </footer>
+        <div class="contact">
+            For bookings, collaborations &amp; inquiries:
+            <a href="mailto:management.ankitshrestha@gmail.com">
+                Get in touch
+            </a>
+        </div>
 
     </div>
+
+</main>
+
+<!-- FOOTER -->
+
+<footer>
+
+    <div class="social-media-icons">
+
+        <a
+            href="mailto:management.ankitshrestha@gmail.com"
+            aria-label="Email"
+        >
+            <img src="Mail.png" alt="Email">
+        </a>
+
+        <a
+            href="https://instagram.com/ankit_shrestha_"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Instagram"
+        >
+            <img src="Instagram.png" alt="Instagram">
+        </a>
+
+        <a
+            href="https://facebook.com/ankitshresthamusic"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Facebook"
+        >
+            <img src="Facebook.png" alt="Facebook">
+        </a>
+
+        <a
+            href="https://open.spotify.com/artist/3CKS9fPsTBBcQoneFUkPu5"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Spotify"
+        >
+            <img src="Spotify.png" alt="Spotify">
+        </a>
+
+        <a
+            href="https://music.apple.com/gb/artist/ankit-shrestha/1142449792"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Apple Music"
+        >
+            <img src="Apple.png" alt="Apple Music">
+        </a>
+
+        <a
+            href="https://youtube.com/ankitshrestha"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="YouTube"
+        >
+            <img src="Youtube.png" alt="YouTube">
+        </a>
+
+    </div>
+
+    <p class="footer-name">
+        ANKIT SHRESTHA
+    </p>
+
+</footer>
 
 </body>
 </html>
