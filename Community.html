@@ -75,12 +75,13 @@
 
         main {
             flex: 1;
+            min-height: 0;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
-            padding: 90px 24px 35px;
+            padding: 85px 24px 25px;
         }
 
         /* PAGE TITLE */
@@ -89,17 +90,24 @@
             font-size: clamp(30px, 4vw, 42px);
             font-weight: 500;
             letter-spacing: 9px;
-            margin: 0 0 35px;
+            line-height: 1.2;
+            margin: 0 0 18px;
+
+            animation: gentleReveal 0.8s ease-out both;
         }
 
-        /* ORIGINAL LOGO */
+        /* ORIGINAL ANKIT SHRESTHA LOGO */
 
         .logo-container {
             width: min(460px, 80vw);
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 0 auto 35px;
+
+            /* Reduced spacing below the logo */
+            margin: 0 auto 8px;
+
+            animation: gentleReveal 1s ease-out 0.2s both;
         }
 
         .logo-container img {
@@ -109,18 +117,25 @@
             object-fit: contain;
         }
 
-        /* COMMUNITY COPY */
+        /* COMMUNITY TEXT */
 
         .community-copy {
-            max-width: 520px;
+            width: 100%;
+            max-width: 850px;
         }
 
         .community-copy p {
             font-size: 15px;
             font-weight: 400;
-            line-height: 1.85;
+            line-height: 1.7;
             color: var(--muted);
-            margin: 0 auto 27px;
+
+            /* Keep sentence on one line on desktop */
+            white-space: nowrap;
+
+            margin: 0 auto 25px;
+
+            animation: gentleReveal 0.9s ease-out 0.45s both;
         }
 
         /* JOIN BUTTON */
@@ -135,8 +150,11 @@
             font-size: 12px;
             font-weight: bold;
             letter-spacing: 2px;
+
             transition: background 0.25s ease,
                         color 0.25s ease;
+
+            animation: gentleReveal 0.9s ease-out 0.65s both;
         }
 
         .join-button:hover {
@@ -147,10 +165,12 @@
         /* CONTACT */
 
         .contact {
-            margin-top: 28px;
+            margin-top: 25px;
             font-size: 12px;
             color: var(--muted);
             letter-spacing: 0.3px;
+
+            animation: gentleReveal 0.9s ease-out 0.85s both;
         }
 
         .contact a {
@@ -164,10 +184,25 @@
             border-color: var(--cream);
         }
 
+        /* SUBTLE ENTRANCE ANIMATION */
+
+        @keyframes gentleReveal {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
         /* FOOTER */
 
         footer {
-            padding: 25px 20px 35px;
+            flex-shrink: 0;
+            padding: 20px 20px 30px;
             text-align: center;
         }
 
@@ -177,7 +212,7 @@
             width: min(420px, 75%);
             height: 1px;
             background: var(--line);
-            margin: 0 auto 27px;
+            margin: 0 auto 22px;
         }
 
         .social-media-icons {
@@ -208,6 +243,18 @@
             opacity: 0.65;
         }
 
+        /* TABLET */
+
+        @media (max-width: 850px) {
+            .logo-container {
+                width: min(420px, 80vw);
+            }
+
+            .community-copy p {
+                font-size: 14px;
+            }
+        }
+
         /* MOBILE */
 
         @media (max-width: 600px) {
@@ -223,24 +270,28 @@
             }
 
             main {
-                padding: 85px 22px 20px;
+                padding: 80px 18px 18px;
             }
 
             .page-title {
                 font-size: 29px;
                 letter-spacing: 6px;
-                margin-bottom: 25px;
+                margin-bottom: 15px;
             }
 
             .logo-container {
                 width: min(340px, 83vw);
-                margin-bottom: 25px;
+                margin-bottom: 6px;
             }
 
             .community-copy p {
-                font-size: 14px;
-                line-height: 1.7;
-                margin-bottom: 22px;
+                font-size: 13px;
+                line-height: 1.6;
+
+                /* Allow wrapping on narrow screens */
+                white-space: normal;
+
+                margin-bottom: 20px;
             }
 
             .join-button {
@@ -250,16 +301,17 @@
             }
 
             .contact {
-                margin-top: 22px;
+                margin-top: 20px;
                 font-size: 11px;
+                line-height: 1.6;
             }
 
             footer {
-                padding: 15px 12px 22px;
+                padding: 12px 12px 20px;
             }
 
             footer::before {
-                margin-bottom: 18px;
+                margin-bottom: 16px;
             }
 
             .social-media-icons {
@@ -282,30 +334,30 @@
         @media (max-height: 720px) {
 
             main {
-                padding-top: 70px;
-                padding-bottom: 12px;
+                padding-top: 65px;
+                padding-bottom: 10px;
             }
 
             .page-title {
-                margin-bottom: 18px;
+                margin-bottom: 10px;
             }
 
             .logo-container {
                 width: min(340px, 70vw);
-                margin-bottom: 18px;
+                margin-bottom: 4px;
             }
 
             .community-copy p {
-                margin-bottom: 16px;
+                margin-bottom: 15px;
             }
 
             .contact {
-                margin-top: 16px;
+                margin-top: 15px;
             }
 
             footer {
-                padding-top: 10px;
-                padding-bottom: 15px;
+                padding-top: 8px;
+                padding-bottom: 12px;
             }
 
             footer::before {
@@ -313,7 +365,65 @@
             }
         }
 
+        /* VERY SHORT MOBILE SCREENS */
+
+        @media (max-width: 600px) and (max-height: 650px) {
+
+            main {
+                padding-top: 60px;
+                padding-bottom: 8px;
+            }
+
+            .page-title {
+                font-size: 25px;
+                margin-bottom: 8px;
+            }
+
+            .logo-container {
+                width: min(260px, 65vw);
+                margin-bottom: 4px;
+            }
+
+            .community-copy p {
+                font-size: 12px;
+                margin-bottom: 12px;
+            }
+
+            .join-button {
+                padding: 11px 20px;
+            }
+
+            .contact {
+                margin-top: 12px;
+            }
+
+            footer {
+                padding-top: 8px;
+                padding-bottom: 10px;
+            }
+
+            footer::before {
+                margin-bottom: 10px;
+            }
+
+            .social-media-icons img {
+                width: 27px;
+                height: 27px;
+            }
+        }
+
+        /* ACCESSIBILITY */
+
         @media (prefers-reduced-motion: reduce) {
+
+            .page-title,
+            .logo-container,
+            .community-copy p,
+            .join-button,
+            .contact {
+                animation: none;
+            }
+
             *,
             *::before,
             *::after {
@@ -327,12 +437,12 @@
 
     <div class="page">
 
-        <!-- HOME -->
+        <!-- HOME BUTTON -->
         <nav class="home-button">
             <a href="index.html">Home</a>
         </nav>
 
-        <!-- MAIN -->
+        <!-- MAIN CONTENT -->
         <main>
 
             <h1 class="page-title">
@@ -351,8 +461,7 @@
             <div class="community-copy">
 
                 <p>
-                    Join the mailing list for new music,
-                    upcoming shows, and occasional updates.
+                    Join the mailing list for new music, upcoming shows, and occasional updates.
                 </p>
 
                 <a
