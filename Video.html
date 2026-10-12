@@ -111,7 +111,7 @@ a {
     width: 100%;
     max-width: 1200px;
     margin: 0 auto;
-    padding: 42px 28px 55px;
+    padding: 30px 28px 55px;
     flex: 1;
 }
 
@@ -121,8 +121,8 @@ a {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 23px;
-    margin-bottom: 18px;
+    gap: 14px;
+    margin-bottom: 0;
 }
 
 .video-header h1 {
@@ -133,10 +133,21 @@ a {
     text-transform: uppercase;
 }
 
+.header-icon {
+    width: 150px;
+    height: 130px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
 .header-icon img {
     display: block;
-    width: 58px;
-    height: 58px;
+    width: 150px;
+    height: 150px;
+    max-width: none;
     object-fit: contain;
 }
 
@@ -144,7 +155,7 @@ a {
 
 .watch-all {
     text-align: center;
-    margin-bottom: 38px;
+    margin-bottom: 36px;
 }
 
 .watch-button {
@@ -297,9 +308,14 @@ footer {
         gap: 25px 18px;
     }
 
+    .header-icon {
+        width: 110px;
+        height: 100px;
+    }
+
     .header-icon img {
-        width: 48px;
-        height: 48px;
+        width: 110px;
+        height: 110px;
     }
 }
 
@@ -341,12 +357,11 @@ footer {
     }
 
     .video-section {
-        padding: 30px 20px 42px;
+        padding: 25px 20px 42px;
     }
 
     .video-header {
-        gap: 13px;
-        margin-bottom: 16px;
+        gap: 6px;
     }
 
     .video-header h1 {
@@ -354,9 +369,14 @@ footer {
         letter-spacing: 5px;
     }
 
+    .header-icon {
+        width: 75px;
+        height: 75px;
+    }
+
     .header-icon img {
-        width: 35px;
-        height: 35px;
+        width: 85px;
+        height: 85px;
     }
 
     .watch-all {
@@ -385,6 +405,16 @@ footer {
 @media (max-width: 360px) {
     .video-gallery {
         grid-template-columns: 1fr;
+    }
+
+    .header-icon {
+        width: 58px;
+        height: 65px;
+    }
+
+    .header-icon img {
+        width: 70px;
+        height: 70px;
     }
 }
 
